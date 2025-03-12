@@ -1,0 +1,63 @@
+/* Basic Reset for margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: poppins;
+    text-align: center;
+}
+
+/* Parallax section styling */
+.parallax {
+    height: 100vh; /* Full viewport height */
+    background-attachment: fixed; /* Key for parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Parallax 1 */
+.parallax-1 {
+    background-image:'C:\Users\Administrator\Downloads\img1.jpg'; ; /* Replace with your image */
+}
+
+/* Parallax 2 */
+.parallax-2 {
+    background-image:'C:\Users\Administrator\Downloads\img1.jpg'; /* Replace with your image */
+}
+
+/* Parallax 3 */
+.parallax-3 {
+    background-image:'C:\Users\Administrator\Download\img1.jpg'; /* Replace with your image */
+}
+
+/* Content Section Styling */
+.content {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1 {
+    color: #333;
+    font-size: 2.5em;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Small adjustments for mobile devices */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
