@@ -1,63 +1,553 @@
-/* Basic Reset for margin and padding */
-body, html {
+/* ===== Reset Styles ===== */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: #f5f0ff;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== Frame Structure ===== */
+.border-frame {
+    width: 90%;
+    height: 90vh;
+    margin: 5vh auto;
+    border: 10px solid white;
+    border-radius: 48px;
+    background: rgba(253, 240, 213, 0.9);
+    position: relative;
+    overflow: hidden;
+}
+
+.center-frame {
+    width: 95%;
+    height: 95%;
+    margin: 2.5%;
+    position: relative;
+}
+
+/* ===== Navigation ===== */
+nav {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 110px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0d1321;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #3e5c76;
+}
+
+/* ===== Parallax Container ===== */
+.parallax-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    font-family: poppins;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ===== Background Text ===== */
+/* Existing text styles */
+.background-text {
+    position: absolute;
+    font-size: 4vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 1;
+    transition: all 0.5s ease-out;
+    pointer-events: none;
     text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
 
-/* Parallax section styling */
-.parallax {
-    height: 100vh; /* Full viewport height */
-    background-attachment: fixed; /* Key for parallax effect */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/* Black text styles */
+.black-text {
+    color: #073b4c; /* Solid black color */
 }
 
-/* Parallax 1 */
-.parallax-1 {
-    background-image:'C:\Users\Administrator\Downloads\img1.jpg'; ; /* Replace with your image */
+/* Outlined text styles */
+.outlined-text {
+    color: transparent;
+    -webkit-text-stroke: 2px #250902; /* Existing outlined style */
 }
 
-/* Parallax 2 */
-.parallax-2 {
-    background-image:'C:\Users\Administrator\Downloads\img1.jpg'; /* Replace with your image */
+/* ===== Image Container ===== */
+.image-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mix-blend-mode: multiply;
+    width: 100%;
+    height: 100%;
 }
 
-/* Parallax 3 */
-.parallax-3 {
-    background-image:'C:\Users\Administrator\Download\img1.jpg'; /* Replace with your image */
+.parallax-img {
+    max-width: 800%; /* Adjust based on your image size */
+    max-height: 80vh; /* Ensure image fits within frame */
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.2));
+    transition: transform 0.5s;
+    object-fit: contain; /* Ensure image scales properly */
 }
 
-/* Content Section Styling */
-.content {
+/* ===== Footer ===== */
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
     text-align: center;
-    padding: 50px 20px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #2a2a2a;
+}
+.background-text {
+    font-size: 0; /* Remove space between inline elements */
 }
 
-/* Headings */
-h1 {
+.background-text span {
+    font-size: 5vw; /* Reset font size for spans */
+}
+.brand-name {
+    position: absolute;
+    top: 1px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #90078c; /* Match your theme color */
+    z-index: 3; /* Ensure it's above other elements */
+}
+.search-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 3; /* Ensure it's above other elements */
+}
+
+.search-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: black; /* Black icon */
+    transition: fill 0.3s ease;
+}
+
+.search-icon:hover svg {
+    fill: white; /* White icon on hover */
+}
+.product-section {
+    padding: 40px 20px;
+    background: #f9f9f9;
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 32px;
     color: #333;
-    font-size: 2.5em;
+    margin-bottom: 30px;
+    position: relative;
 }
 
-/* Paragraphs */
-p {
-    font-size: 1.2em;
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #90078c;
+    margin: 10px auto 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards in a row */
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%; /* Make the image fill the card width */
+    height: 200px; /* Set a fixed height for the image container */
+    object-fit: contain; /* Ensures the image covers the area without stretching */
+    border-radius: 10px 10px 0 0; /* Rounded corners at the top */
+}
+
+.product-details {
+    padding: 15px;
+}
+
+.product-name {
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #90078c;
+    margin: 0 0 10px;
+}
+
+.product-reviews {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.stars {
+    color: #ffc107; /* Gold color for stars */
+    font-size: 16px;
+}
+
+.review-count {
+    font-size: 14px;
+    color: #666;
+}
+
+.buy-button {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: #fdf0d5;
+    color: #140c0c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.buy-button:hover {
+    background: #90078c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
+    }
+}
+
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards in a row */
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 card in a row */
+    }
+}
+.about-section {
+    padding: 100px;
+    text-align: center;
+}
+
+.about-section h1 {
+    margin-top: 88px;
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 13px;
+}
+
+.about-section p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+/* Footer Container */
+.footer-container {
+    background: #2a2a2a; /* Black background */
+    color: #fff; /* White text */
+    padding: 40px 20px 254px; /* Add padding */
+    text-align: center; /* Center-align text */
+    width: 100%; /* Full width */
+    position: relative; /* Ensure it's not constrained */
+    z-index: 1; /* Bring it above other content if needed */
+}
+
+/* Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the content */
+    padding-bottom: 20px; /* Add space above the footer-bottom */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #bc75e4; /* Purple heading */
+}
+
+.footer-section ol {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ol li {
+    margin-bottom: 10px;
+}
+
+.footer-section ol li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ol li a:hover {
+    color: #bc75e4; /* Purple on hover */
+}
+
+.footer-section p {
+    margin: 5px 0;
+    color: #ddd; /* Light gray text */
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #bc75e4; /* Purple on hover */
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #444; /* Divider line */
+    padding-top: 10px;
+    font-size: 14px;
+    color: #aaa; /* Light gray text */
+}
+/* Sign Up Container */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background: #f5f0ff; /* Light purple background */
+    padding: 20px;
+}
+
+/* Sign Up Form */
+.signup-form {
+    background: #fff; /* White background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.signup-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2a2a2a; /* Dark gray text */
+    text-align: center;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #bc75e4; /* Purple border on focus */
+}
+
+/* Submit Button */
+.form-group button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #bc75e4; /* Purple background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-group button:hover {
+    background: #90078c; /* Darker purple on hover */
+}
+
+/* Login Link */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
     color: #555;
 }
 
-/* Small adjustments for mobile devices */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
+.login-link a {
+    color: #bc75e4; /* Purple link */
+    text-decoration: none;
+    transition: color 0.3s;
+}
 
-    p {
-        font-size: 1em;
-    }
+.login-link a:hover {
+    color: #90078c; /* Darker purple on hover */
+}
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background: #f5f0ff; /* Light purple background */
+    padding: 20px;
+}
+
+/* Login Form */
+.login-form {
+    background: #fff; /* White background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2a2a2a; /* Dark gray text */
+    text-align: center;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #bc75e4; /* Purple border on focus */
+}
+
+/* Submit Button */
+.form-group button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #bc75e4; /* Purple background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-group button:hover {
+    background: #90078c; /* Darker purple on hover */
+}
+
+/* Sign Up Link */
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.signup-link a {
+    color: #bc75e4; /* Purple link */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.signup-link a:hover {
+    color: #90078c; /* Darker purple on hover */
 }
